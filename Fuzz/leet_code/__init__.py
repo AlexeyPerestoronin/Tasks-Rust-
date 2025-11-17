@@ -33,6 +33,22 @@ def build(ctx):
     CommandExecutor(ctx).execute(command, cwd=f"{ctx.leet_code_dir}", log="leet_code-build.log")
 
 
+@task(pre=[setup.setup_context])
+@print_task_documentation
+def test(ctx):
+    """
+    Test leet_code rust-project
+    """
+
+    command = [
+        activate_VS2022_environment(),
+        ["cargo test"],
+    ]
+
+    CommandExecutor(ctx).execute(command, cwd=f"{ctx.leet_code_dir}", log="leet_code-test.log")
+
+
 collection = Collection("leet_code")
 collection.add_task(check, name="check")
 collection.add_task(build, name="build")
+collection.add_task(test, name="test")
