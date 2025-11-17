@@ -1,0 +1,11 @@
+__pycache__
+.qodo
+.venv
+.generated
+.cache
+.vscode
+
+target
+
+note.md
+TODO.md

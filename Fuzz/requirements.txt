@@ -1,0 +1,6 @@
+invoke>=2.2.1           # Task execution and automation library
+
+# On Windows for building it is needed in "Development for Desktop with C++" for Visual Studio
+pandas>=2.3.3           # Data manipulation and analysis library
+colorama>=0.0.4         # Cross-platform colored terminal text
+yapf>=0.43.0            # Python file formatter
