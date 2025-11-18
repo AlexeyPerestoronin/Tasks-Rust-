@@ -31,6 +31,7 @@ def get_env_context():
     setup_dir_via_env("CURRENT_INSTANCE_LOG", f"{fuzz_dir}/.generated")
     git_dir = setup_dir_via_env("GIT_DIR", f"{fuzz_dir}/..")
     setup_dir_via_env("LEET_CODE_DIR", f"{git_dir}/leet_code")
+    setup_dir_via_env("LEET_CODE_MACRO_DIR", f"{git_dir}/leet_code_macro")
 
     # add here additional env-variables which will be available via ctx (context) on each task
 

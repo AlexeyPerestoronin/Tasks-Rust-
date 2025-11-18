@@ -1,7 +1,6 @@
 from invoke import Collection, task
 
 import setup
-import leet_code.macro
 from utils.command_executor import CommandExecutor
 from utils.windows.environment_utils import activate_VS2022_environment
 from utils.logger import print_task_documentation
@@ -11,19 +10,19 @@ from utils.logger import print_task_documentation
 @print_task_documentation
 def check(ctx):
     """
-    Check leet_code rust-lib
+    Check leet_code_macro rust-lib
     """
 
     command = ["cargo check"]
 
-    CommandExecutor(ctx).execute(command, cwd=f"{ctx.leet_code_dir}", log="leet_code-check.log")
+    CommandExecutor(ctx).execute(command, cwd=f"{ctx.leet_code_macro_dir}", log="leet_code_macro-check.log")
 
 
 @task(pre=[setup.setup_context])
 @print_task_documentation
 def build(ctx):
     """
-    Build leet_code rust-lib
+    Build leet_code_macro rust-lib
     """
 
     command = [
@@ -31,14 +30,14 @@ def build(ctx):
         ["cargo build"],
     ]
 
-    CommandExecutor(ctx).execute(command, cwd=f"{ctx.leet_code_dir}", log="leet_code-build.log")
+    CommandExecutor(ctx).execute(command, cwd=f"{ctx.leet_code_macro_dir}", log="leet_code_macro-build.log")
 
 
 @task(pre=[setup.setup_context])
 @print_task_documentation
 def test(ctx):
     """
-    Test leet_code rust-lib
+    Test leet_code_macro rust-lib
     """
 
     command = [
@@ -46,11 +45,10 @@ def test(ctx):
         ["cargo test"],
     ]
 
-    CommandExecutor(ctx).execute(command, cwd=f"{ctx.leet_code_dir}", log="leet_code-test.log")
+    CommandExecutor(ctx).execute(command, cwd=f"{ctx.leet_code_macro_dir}", log="leet_code_macro-test.log")
 
 
-collection = Collection("leet_code")
+collection = Collection("macro")
 collection.add_task(check, name="check")
 collection.add_task(build, name="build")
 collection.add_task(test, name="test")
-collection.add_collection(leet_code.macro)

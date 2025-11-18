@@ -1,11 +1,17 @@
+# IDE
 __pycache__
 .qodo
 .venv
-.generated
 .cache
 .vscode
 
+# Fuzz
+.generated
+
+# Rust
+Cargo.lock
 target
 
+# User
 note.md
 TODO.md

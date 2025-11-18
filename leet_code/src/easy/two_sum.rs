@@ -1,3 +1,7 @@
+extern crate leet_code_macro;
+use leet_code_macro::make_answer;
+
+make_answer!();
 pub struct Solution;
 
 impl Solution {
@@ -12,6 +16,7 @@ mod tests {
 
     #[test]
     fn test1() {
+        println!("{}", answer());
         Solution::two_sum(Vec::new(), 3);
     }
 }
