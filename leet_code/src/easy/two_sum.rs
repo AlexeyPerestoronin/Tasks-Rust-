@@ -43,8 +43,8 @@ mod tests {
         struct InputType(Vec<i32>, i32);
         struct OutputType(Vec<i32>);
         case_1_test = {InputType(vec![2, 7, 11, 15], 9), OutputType(vec![0, 1])};
-        case_2_test = {InputType(vec![3, 2, 4], 6), OutputType(vec![1, 2])};
-        case_3_test = {InputType(vec![3, 3], 6), OutputType(vec![0, 1])};
+        case_2_test = {InputType(vec![3, 2, 4], 6),      OutputType(vec![1, 2])};
+        case_3_test = {InputType(vec![3, 3], 6),         OutputType(vec![0, 1])};
     )]
     fn two_sum_test(input: InputType, result: OutputType) -> () {
         assert_eq!(Solution::two_sum(input.0, input.1), result.0);
