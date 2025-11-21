@@ -3,6 +3,7 @@ import pandas
 from invoke import task
 from pathlib import Path
 
+
 def get_env_context():
     """
     Gets table of env-variables needing for tasks launching
