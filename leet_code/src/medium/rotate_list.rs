@@ -7,13 +7,6 @@ pub struct ListNode {
     pub next: Option<Box<ListNode>>,
 }
 
-impl ListNode {
-    #[inline]
-    fn new(val: i32) -> Self {
-        ListNode { val, next: None }
-    }
-}
-
 impl From<Vec<i32>> for ListNode {
     fn from(value: Vec<i32>) -> Self {
         fn add_tail(value: &Vec<i32>, i: usize) -> Option<Box<ListNode>> {

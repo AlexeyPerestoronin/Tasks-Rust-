@@ -13,9 +13,10 @@ def check(ctx):
     Check leet_code_macro rust-lib
     """
 
-    command = ["cargo check"]
-
-    CommandExecutor(ctx).execute(command, cwd=f"{ctx.leet_code_macro_dir}", log="leet_code_macro-check.log")
+    CommandExecutor(ctx)\
+        .add_cwd(f"{ctx.leet_code_macro_dir}")\
+        .add_command(["cargo check"])\
+        .execute("leet_code.macro.check.log")
 
 
 @task(pre=[setup.setup_context])
@@ -25,30 +26,13 @@ def build(ctx):
     Build leet_code_macro rust-lib
     """
 
-    command = [
-        activate_VS2022_environment(),
-        ["cargo build"],
-    ]
-
-    CommandExecutor(ctx).execute(command, cwd=f"{ctx.leet_code_macro_dir}", log="leet_code_macro-build.log")
-
-
-@task(pre=[setup.setup_context])
-@print_task_documentation
-def test(ctx):
-    """
-    Test leet_code_macro rust-lib
-    """
-
-    command = [
-        activate_VS2022_environment(),
-        ["cargo test"],
-    ]
-
-    CommandExecutor(ctx).execute(command, cwd=f"{ctx.leet_code_macro_dir}", log="leet_code_macro-test.log")
+    CommandExecutor(ctx)\
+        .add_cwd(f"{ctx.leet_code_macro_dir}")\
+        .add_command(activate_VS2022_environment())\
+        .add_command(["cargo build"])\
+        .execute("leet_code.macro.build.log")
 
 
 collection = Collection("macro")
 collection.add_task(check, name="check")
 collection.add_task(build, name="build")
-collection.add_task(test, name="test")
